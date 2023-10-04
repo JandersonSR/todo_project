@@ -12,4 +12,3 @@ CREATE TABLE users (
     systemId varchar(25),
     createdAt TIMESTAMP
 );
-

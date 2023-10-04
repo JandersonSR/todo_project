@@ -1,4 +1,4 @@
-package service;
+package todo.service;
 
 public class ProposalService {
 }

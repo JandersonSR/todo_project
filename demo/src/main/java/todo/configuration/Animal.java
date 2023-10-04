@@ -1,4 +1,4 @@
-package controller.configuration;
+package todo.configuration;
 
 public interface Animal {
     void saySomething();

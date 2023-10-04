@@ -1,4 +1,4 @@
-package controller.configuration;
+package todo.configuration;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

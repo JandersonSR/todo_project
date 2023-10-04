@@ -1,13 +1,11 @@
-package service;
+package todo.service;
 
-import model.UserModel;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.UserRepository;
 
 @Service
 public class UserService {
 
+    /*
     private UserRepository repository;
 
     @Autowired
@@ -38,4 +36,5 @@ public class UserService {
     public void list () {
         this.repository.list();
     }
+    */
 }
