@@ -1,4 +1,4 @@
-package todo;
+package todo.controller;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;

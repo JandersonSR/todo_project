@@ -1,13 +1,11 @@
 package todo.domain.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -21,5 +19,21 @@ public class Proposals {
     private BigDecimal valor;
     private String metaProductBankId;
     private String proposalId;
-    private String createdAt;
+
+    @ManyToOne
+    @JoinColumn(name = "users_id")
+    private Users users;
+
+    private LocalDate createdAt;
+
+    @Override
+    public String toString() {
+        return "Proposals{" +
+                "id=" + id +
+                ", valor=" + valor +
+                ", metaProductBankId='" + metaProductBankId + '\'' +
+                ", proposalId='" + proposalId + '\'' +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 }

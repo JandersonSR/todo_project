@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    /*
     private UserRepository repository;
 
     @Autowired
@@ -36,5 +35,4 @@ public class UserService {
     public void list () {
         this.repository.list();
     }
-    */
 }

@@ -1,14 +1,18 @@
-package todo;
+package todo.controller;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
 @RestController
 @RequestMapping("/users")
 
+@Controller
 public class UserController {
-/*
+
         @Autowired
         private UserService userService;
 
@@ -30,13 +34,15 @@ public class UserController {
 
         @GetMapping(path = { "/{id}" })
         public void findById(@PathVariable long id) {
-            UserService.findById(id);
+           Optional<Users> selectedUser = UserService.findById(id);
+           if (selectedUser.isPresent) {
+               return ResponseEntity.ok(this.selectedUser, HttpStatus.OK);
+           }
+            return ResponseEntity.notFound(this.selectedUser);
+
         }
         @GetMapping(path = { "/" })
         public void list() {
             UserService.list();
         }
-
-
-*/
 }

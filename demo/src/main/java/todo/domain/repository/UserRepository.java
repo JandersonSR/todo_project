@@ -16,8 +16,12 @@ public interface UserRepository extends JpaRepository<Users,Integer> {
 
     Users findOneByNome(String nome);
 
-    @Query(value = " select * from users c where c.nome like '%:nome%' ", nativeQuery = true)
+//    @Query(" select u from users u left join fetch u.proposals where u.id = :id ")
+//    Users findUserFetchProposals(@Param("id") Integer id);
+
+    @Query(value = " select * from users u where u.nome like '%:nome%' ", nativeQuery = true)
     List<Users> encontrarPorNome(@Param("nome") String nome);
+
 
     boolean existsByNome(String nome);
 }
