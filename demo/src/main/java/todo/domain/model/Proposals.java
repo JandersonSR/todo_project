@@ -15,11 +15,11 @@ import java.math.BigDecimal;
 @Entity
 public class Proposals {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private Integer number;
-    private Number valor;
+    private Integer id;
+    private BigDecimal valor;
     private String metaProductBankId;
-    private String id;
+    private String proposalId;
     private String createdAt;
 }

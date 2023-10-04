@@ -1,35 +1,23 @@
 package todo.domain.repository;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.domain.Example;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import todo.domain.model.Users;
 
-@Repository
-public class UserRepository {
+import java.util.List;
 
-    private static String INSERT = "insert into users (nome) values (?)";
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+public interface UserRepository extends JpaRepository<Users,Integer> {
 
-    public Users create(Users userModel) {
-        // acessa db e salva user
-        jdbcTemplate.update( INSERT, new Object[] { userModel.getNome() });
-        return userModel;
-    }
-/*
-    public void updateOne(UserModel user) {
-        // acessa db e atualiza user
-    }
-    public static void deleteById(Long id) {
+    List<Users> findByNomeLike(String nome);
+    List<Users> findByNomeLikeOrId(String nome, Integer id);
+    List<Users> findByNomeLikeOrIdOrderById(String nome, Integer id);
 
-    }
-    public void findById(Long id) {
+    Users findOneByNome(String nome);
 
-    }
-    public void list() {
+    @Query(value = " select * from users c where c.nome like '%:nome%' ", nativeQuery = true)
+    List<Users> encontrarPorNome(@Param("nome") String nome);
 
-    }
-
- */
+    boolean existsByNome(String nome);
 }
