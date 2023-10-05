@@ -2,32 +2,37 @@ package todo.domain.model;
 
 import jakarta.persistence.*;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.Set;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 
 @Entity
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private Integer id;
+    private Long id;
 
     @Column(name = "nome", length = 100)
     private String nome;
 
-    private String systemId;
+    @Column(name = "email", length = 100)
+    private String email;
+
+    private String password;
+    private String level;
+
+    @Column(name = "created_at")
     private LocalDate createdAt;
 
     @OneToMany(mappedBy = "users")
-    private Set<Proposals> proposals;
+    private Set<Todo> todos;
 
-    public Users() {}
     public Users(String nome) {
         this.setNome(nome);
     }
@@ -36,13 +41,4 @@ public class Users {
         this.createdAt = LocalDate.now();
     }
 
-    @Override
-    public String toString() {
-        return "Users{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", systemId='" + systemId + '\'' +
-                ", createdAt=" + createdAt +
-                '}';
-    }
 }

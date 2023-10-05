@@ -8,11 +8,11 @@ import todo.domain.model.Users;
 
 import java.util.List;
 
-public interface UserRepository extends JpaRepository<Users,Integer> {
+public interface UserRepository extends JpaRepository<Users,Long> {
 
     List<Users> findByNomeLike(String nome);
-    List<Users> findByNomeLikeOrId(String nome, Integer id);
-    List<Users> findByNomeLikeOrIdOrderById(String nome, Integer id);
+    List<Users> findByNomeLikeOrId(String nome, Long id);
+    List<Users> findByNomeLikeOrIdOrderById(String nome, Long id);
 
     Users findOneByNome(String nome);
 

@@ -1,10 +1,9 @@
-CREATE TABLE proposal (
+CREATE TABLE todo (
     id integer primary key AUTO_INCREMENT,
     valor NUMERIC(20, 2),
-    metaProductBankId varchar(25),
-    proposalId varchar(25),
+    description varchar(25),
     createdAt TIMESTAMP,
-     userId varchar(25) REFERENCES users (userId)
+    userId varchar(25) REFERENCES users (userId)
 );
 
 CREATE TABLE users (
@@ -14,3 +13,4 @@ CREATE TABLE users (
     systemId varchar(25),
     createdAt TIMESTAMP
 );
+
